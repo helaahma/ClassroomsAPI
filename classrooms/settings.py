@@ -40,9 +40,16 @@ INSTALLED_APPS = [
 
     'classes',
     'rest_framework',
+    'api',
 
     'crispy_forms',
 ]
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

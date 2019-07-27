@@ -17,11 +17,9 @@ class ClassesDetails(RetrieveAPIView):
 	lookup_url_kwarg = 'class_id'
 
 class ClassesCreate(CreateAPIView):
-
-	queryset= Classroom.objects.all()
 	serializer_class = CreateSerializer
 	def perform_create(self, serializer):
-		serializer.save(teacher=self.request.user, class_id=self.kwargs['class_id'])
+		serializer.save(teacher=self.request.user)
 
 
 class ClassesUpdate(RetrieveUpdateAPIView):
@@ -30,7 +28,7 @@ class ClassesUpdate(RetrieveUpdateAPIView):
 	serializer_class = CreateSerializer
 	lookup_field = 'id'
 	lookup_url_kwarg = 'class_id'
-	
+
 
 class ClassesCancel(DestroyAPIView):
 
